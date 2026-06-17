@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio López & Asociados — Contadores Públicos, Rosario</title>
+    <meta name="description" content="Estudio contable López & Asociados en Rosario. Contabilidad, impuestos, monotributo, sociedades y asesoramiento fiscal para pymes y profesionales.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--blue:#1a56db;--blue-light:#3b82f6;--blue-dark:#1e3a5f;--navy:#0f172a;--gray-50:#f8fafc;--gray-100:#f1f5f9;--gray-200:#e2e8f0;--gray-600:#475569;--gray-900:#0f172a;--white:#fff}
+        body{font-family:'Inter',sans-serif;color:var(--gray-900);overflow-x:hidden}
+
+        /* NAV */
+        nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);z-index:100;padding:.8rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gray-200);box-shadow:0 1px 3px rgba(0,0,0,.05)}
+        .logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--blue-dark)}
+        .logo span{color:var(--blue)}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{color:var(--gray-600);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .3s}
+        .nav-links a:hover{color:var(--blue)}
+        .nav-cta{background:var(--blue);color:var(--white);padding:.5rem 1.2rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:.85rem;transition:background .3s}
+        .nav-cta:hover{background:var(--blue-dark)}
+        .menu-toggle{display:none;background:none;border:none;color:var(--blue-dark);font-size:1.5rem;cursor:pointer}
+
+        /* HERO */
+        .hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2rem 4rem;background:linear-gradient(135deg,var(--gray-50) 0%,#dbeafe 100%)}
+        .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+        .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.15;color:var(--navy);margin-bottom:1rem}
+        .hero h1 span{color:var(--blue)}
+        .hero p{font-size:1.1rem;color:var(--gray-600);line-height:1.7;margin-bottom:2rem}
+        .hero-visual{background:linear-gradient(135deg,var(--blue),var(--blue-dark));border-radius:16px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:5rem;box-shadow:0 20px 60px rgba(26,86,219,.25)}
+        .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+        .btn{padding:.8rem 2rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:1rem;transition:all .3s;display:inline-block}
+        .btn-primary{background:var(--blue);color:var(--white)}
+        .btn-primary:hover{background:var(--blue-dark);transform:translateY(-2px)}
+        .btn-outline{border:2px solid var(--blue);color:var(--blue)}
+        .btn-outline:hover{background:var(--blue);color:var(--white)}
+
+        /* SECTIONS */
+        section{padding:5rem 2rem}
+        .section-title{font-family:'DM Serif Display',serif;font-size:2.2rem;text-align:center;margin-bottom:.5rem;color:var(--navy)}
+        .section-sub{text-align:center;color:var(--blue);margin-bottom:3rem;font-size:.9rem;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+
+        /* SERVICES */
+        .services{background:var(--white)}
+        .services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+        .service-card{background:var(--gray-50);border-radius:12px;padding:2rem;border:1px solid var(--gray-200);transition:all .3s}
+        .service-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 10px 30px rgba(26,86,219,.1)}
+        .service-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--blue),var(--blue-light));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1rem}
+        .service-card h3{font-size:1.1rem;margin-bottom:.5rem;color:var(--navy)}
+        .service-card p{font-size:.9rem;color:var(--gray-600);line-height:1.6}
+
+        /* WHY US */
+        .why-us{background:var(--gray-50)}
+        .why-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+        .why-item{display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--white);border-radius:10px;border:1px solid var(--gray-200)}
+        .why-check{width:28px;height:28px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:.8rem;flex-shrink:0;font-weight:700}
+        .why-item h4{font-size:.95rem;margin-bottom:.3rem}
+        .why-item p{font-size:.85rem;color:var(--gray-600)}
+
+        /* TESTIMONIALS */
+        .testimonials{background:var(--white)}
+        .testimonials-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+        .testimonial{background:var(--gray-50);border-radius:12px;padding:2rem;border:1px solid var(--gray-200)}
+        .stars{color:#f59e0b;font-size:1rem;margin-bottom:1rem}
+        .testimonial p{font-size:.9rem;color:var(--gray-600);line-height:1.6;font-style:italic;margin-bottom:1rem}
+        .testimonial-author{font-weight:600;font-size:.85rem}
+        .testimonial-role{font-size:.8rem;color:var(--gray-600)}
+
+        /* CONTACT */
+        .contact{background:var(--gray-50)}
+        .contact-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+        .contact-info{display:flex;flex-direction:column;gap:1.5rem}
+        .contact-item{display:flex;align-items:flex-start;gap:1rem}
+        .contact-icon{width:40px;height:40px;background:rgba(26,86,219,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0}
+        .contact-form{display:flex;flex-direction:column;gap:1rem}
+        .contact-form input,.contact-form select,.contact-form textarea{border:1px solid var(--gray-200);border-radius:6px;padding:.8rem 1rem;font-family:inherit;font-size:.95rem;outline:none;transition:border-color .3s;background:var(--white)}
+        .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--blue)}
+        .contact-form textarea{resize:vertical;min-height:100px}
+        .contact-form button{background:var(--blue);color:var(--white);border:none;padding:.8rem;border-radius:6px;font-weight:600;font-size:1rem;cursor:pointer;transition:background .3s}
+        .contact-form button:hover{background:var(--blue-dark)}
+
+        /* FOOTER */
+        footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem;text-align:center;font-size:.85rem}
+
+        /* WHATSAPP */
+        .whatsapp-float{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,.4);z-index:99;transition:transform .3s;text-decoration:none}
+        .whatsapp-float:hover{transform:scale(1.1)}
+        .whatsapp-float svg{width:30px;height:30px;fill:#fff}
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            .nav-links{display:none}
+            .menu-toggle{display:block}
+            .nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:rgba(255,255,255,.98);padding:1rem 2rem;gap:1rem;border-bottom:1px solid var(--gray-200)}
+            .hero-inner,.services-grid,.testimonials-grid,.contact-grid{grid-template-columns:1fr}
+            .why-grid{grid-template-columns:1fr}
+            .hero-visual{max-width:300px;margin:0 auto}
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">López <span>&</span> Asociados</div>
+        <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#nosotros">Por qué elegirnos</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="https://wa.me/5493415000630?text=Hola!%20Necesito%20asesoramiento%20contable" class="nav-cta">Consulta Gratis</a>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="hero-inner">
+            <div>
+                <h1>Tu estudio contable de <span>confianza</span> en Rosario</h1>
+                <p>Más de 15 años asesorando a profesionales, pymes y emprendedores. Nos ocupamos de tus números para que vos te ocupes de tu negocio.</p>
+                <div class="hero-btns">
+                    <a href="#contacto" class="btn btn-primary">Agendar Consulta</a>
+                    <a href="#servicios" class="btn btn-outline">Ver Servicios</a>
+                </div>
+            </div>
+            <div class="hero-visual">📊</div>
+        </div>
+    </section>
+
+    <section class="services" id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <p class="section-sub">Soluciones contables integrales</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Monotributo & Autónomos</h3>
+                <p>Alta, recategorización, facturación electrónica y todo lo que necesitás para estar al día con AFIP.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Contabilidad para Pymes</h3>
+                <p>Liquidación de sueldos, balances, estados contables y reportes mensuales para tu empresa.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📑</div>
+                <h3>Impuestos & DDJJ</h3>
+                <p>Ganancias, IVA, Ingresos Brutos, bienes personales. Presentaciones en tiempo y forma.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Constitución de Sociedades</h3>
+                <p>SAS, SRL, SA. Armamos tu sociedad desde cero con todos los trámites legales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💰</div>
+                <h3>Asesoramiento Fiscal</h3>
+                <p>Planificación tributaria para pagar menos impuestos dentro del marco legal.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Consultoría de Negocios</h3>
+                <p>Análisis de costos, márgenes, proyecciones financieras y plan de negocios.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us" id="nosotros">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <p class="section-sub">Lo que nos diferencia</p>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="why-check">✓</div>
+                <div><h4>+15 años de experiencia</h4><p>Trabajamos con más de 200 clientes activos en Rosario y alrededores.</p></div>
+            </div>
+            <div class="why-item">
+                <div class="why-check">✓</div>
+                <div><h4>Respuesta en 24hs</h4><p>Ante cualquier consulta o vencimiento urgente, estamos disponibles.</p></div>
+            </div>
+            <div class="why-item">
+                <div class="why-check">✓</div>
+                <div><h4>Todo digital</h4><p>Trabajamos 100% online. No necesitás acercarte a la oficina para nada.</p></div>
+            </div>
+            <div class="why-item">
+                <div class="why-check">✓</div>
+                <div><h4>Precio justo y transparente</h4><p>Honorarios fijos mensuales sin sorpresas. Sabés lo que pagás.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonios">
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+        <p class="section-sub">Testimonios reales</p>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"Excelentes profesionales. Me solucionaron un quilombo con AFIP que venía arrastrando hace 2 años. Súper recomendables."</p>
+                <div class="testimonial-author">María G.</div>
+                <div class="testimonial-role">Dueña de comercio</div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"Hace 5 años que trabajo con ellos. Siempre puntuales con las presentaciones y me avisan antes de cada vencimiento."</p>
+                <div class="testimonial-author">Carlos R.</div>
+                <div class="testimonial-role">Profesional independiente</div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"Me ayudaron a armar mi SAS y a entender los números del negocio. Ahora tomo decisiones con datos, no con intuición."</p>
+                <div class="testimonial-author">Laura M.</div>
+                <div class="testimonial-role">Fundadora de startup</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-sub">Primera consulta sin cargo</p>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div><strong>Dirección</strong><br>Córdoba 1250, Piso 3, Rosario, Santa Fe</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div><strong>Teléfono</strong><br><a href="tel:+5493415000630" style="color:var(--blue);text-decoration:none">+54 341 500-0630</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div><strong>Horarios</strong><br>Lunes a Viernes<br>9:00 – 18:00</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div><strong>Email</strong><br><a href="mailto:info@estudiolopez.com.ar" style="color:var(--blue);text-decoration:none">info@estudiolopez.com.ar</a></div>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="event.preventDefault();alert('¡Gracias! Te contactaremos en menos de 24hs.')">
+                <input type="text" placeholder="Nombre completo" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Teléfono / WhatsApp">
+                <select>
+                    <option value="" disabled selected>¿Qué servicio necesitás?</option>
+                    <option>Monotributo / Autónomos</option>
+                    <option>Contabilidad para Pymes</option>
+                    <option>Impuestos / DDJJ</option>
+                    <option>Constitución de Sociedad</option>
+                    <option>Asesoramiento Fiscal</option>
+                    <option>Otro</option>
+                </select>
+                <textarea placeholder="Contanos brevemente tu consulta..."></textarea>
+                <button type="submit">Enviar Consulta</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Estudio López & Asociados — Rosario, Santa Fe. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/5493415000630?text=Hola!%20Necesito%20asesoramiento%20contable" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 32 32"><path d="M16.01 2.64C8.63 2.64 2.64 8.62 2.64 16c0 2.36.62 4.66 1.8 6.7L2.5 29.36l6.86-1.8A13.34 13.34 0 0016.01 29.36c7.38 0 13.36-5.98 13.36-13.36S23.39 2.64 16.01 2.64zm0 24.44c-2.15 0-4.25-.58-6.08-1.68l-.44-.26-4.54 1.19 1.21-4.43-.28-.45a11.07 11.07 0 01-1.7-5.9c0-6.12 4.98-11.1 11.1-11.1s11.1 4.98 11.1 11.1-4.98 11.1-11.1 11.1zm6.1-8.32c-.34-.17-1.98-1-2.29-1.11-.3-.11-.52-.17-.74.17s-.86 1.1-1.05 1.33c-.19.22-.39.25-.73.08-.34-.17-1.42-.52-2.71-1.66-1-1.9-1.58-2.12-1.76-2.46s-.02-.36.13-.53c.13-.15.3-.39.44-.59.15-.2.2-.34.3-.56.1-.22.05-.42-.03-.59-.08-.17-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.42-.3.33-1.14 1.11-1.14 2.72s1.17 3.15 1.33 3.37c.17.22 2.3 3.52 5.58 4.93.78.34 1.39.54 1.87.69.78.25 1.5.21 2.06.13.63-.09 1.98-.81 2.26-1.59.28-.78.28-1.45.2-1.59-.09-.14-.3-.22-.64-.39z"/></svg>
+    </a>
+</body>
+</html>
